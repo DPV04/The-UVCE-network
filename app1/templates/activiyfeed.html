@@ -1,0 +1,30 @@
+<div class="activities">
+  <div class="activities__header">
+    <h2>Recent Messages</h2>
+  </div>
+  {% for f in room_messages %}
+  <div class="activities__box">
+    <div class="activities__boxHeader roomListRoom__header">
+      <a
+        href="{% url 'userprofile' f.user.id %}?q={{f.user.username}}"
+        class="roomListRoom__author"
+      >
+        <div class="avatar avatar--small">
+          <img src="{{f.user.avatar.url}}" />
+        </div>
+        <p>
+          # {{f.user.username}} {{f.user.year}} Year | {{f.user.branch}}
+
+          <span>{{f.created|timesince}} ago</span>
+        </p>
+      </a>
+    </div>
+    <div class="activities__boxContent">
+      <p>
+        replied to post “<a href="{% url 'room' f.room.id %}">{{f.room}}</a>”
+      </p>
+      <div class="activities__boxRoomContent">{{f.body}}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

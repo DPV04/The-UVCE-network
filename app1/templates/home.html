@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% block start %}
+
+<main class="layout layout--3">
+  <div class="container">
+    {% include 'browsingtopics.html' %}
+
+    <div class="roomList">
+      <div class="mobile-menu">
+        <form action="{% url 'home' %}" method="GET" class="header__search">
+          <label>
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+            >
+              <title>search</title>
+              <path
+                d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z"
+              ></path>
+            </svg>
+            <input name="q" placeholder="Search for posts" />
+          </label>
+        </form>
+      </div>
+
+      <div class="roomList__header">
+        <div>
+          <h2>Communities</h2>
+          <p>{{room_count}} Rooms available</p>
+        </div>
+
+        <a class="btn btn--main" href="{% url 'feed' %}">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M2.33537 7.87495C1.79491 9.00229 1.98463 10.3208 2.36407 12.9579L2.64284 14.8952C3.13025 18.2827 3.37396 19.9764 4.54903 20.9882C5.72409 22 7.44737 22 10.8939 22H13.1061C16.5526 22 18.2759 22 19.451 20.9882C20.626 19.9764 20.8697 18.2827 21.3572 14.8952L21.6359 12.9579C22.0154 10.3208 22.2051 9.00229 21.6646 7.87495C21.1242 6.7476 19.9738 6.06234 17.6731 4.69181L16.2882 3.86687C14.199 2.62229 13.1543 2 12 2C10.8457 2 9.80104 2.62229 7.71175 3.86687L6.32691 4.69181C4.02619 6.06234 2.87583 6.7476 2.33537 7.87495ZM12.0001 9.24979C12.4143 9.24979 12.7501 9.58558 12.7501 9.99979V12.2498L15.0001 12.2498C15.4143 12.2498 15.7501 12.5856 15.7501 12.9998C15.7501 13.414 15.4143 13.7498 15.0001 13.7498L12.7501 13.7498V15.9998C12.7501 16.414 12.4143 16.7498 12.0001 16.7498C11.5859 16.7498 11.2501 16.414 11.2501 15.9998V13.7498H9.0001C8.58589 13.7498 8.2501 13.414 8.2501 12.9998C8.2501 12.5856 8.58589 12.2498 9.0001 12.2498H11.2501V9.99979C11.2501 9.58558 11.5859 9.24979 12.0001 9.24979Z"
+                fill="#1C274C"
+              ></path>
+            </g>
+          </svg>
+          Home
+        </a>
+
+        <a class="btn btn--main" href="{% url 'enterroomdetails' %}">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+          >
+            <title>add</title>
+            <path
+              d="M16.943 0.943h-1.885v14.115h-14.115v1.885h14.115v14.115h1.885v-14.115h14.115v-1.885h-14.115v-14.115z"
+            ></path>
+          </svg>
+          Create Community
+        </a>
+      </div>
+
+      <!-- <div>
+  <h1>heloo bro</h1>
+  {% if request.user.is_authenticated %}
+
+  <p>hello{{request.user}}</p>
+  {% endif %}
+ </div> -->
+
+      {% include 'groupsfeed.html' %}
+    </div>
+
+    {% include 'activiyfeed.html' %}
+  </div>
+</main>
+
+{% endblock start %}

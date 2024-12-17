@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block start %}
+
+  <form class="container mt-5" method="POST" enctype="multipart/form-data">
+
+      {% csrf_token %}
+      <h2> register</h2>
+      {% if messages %}
+   <ul class="messages">
+  {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+   </ul>
+      {% endif %}
+
+      <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <input type="text" class="form-control" name="username" placeholder="Enter Username">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <p> already have an account <a class="btn btn-outline-dark" href="/login/">login</a>
+      <button type="submit" class="btn btn-primary">register</button>
+
+    </form>
+
+
+{% endblock %}
