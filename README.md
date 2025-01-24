@@ -1,5 +1,5 @@
-### 🌐 **The Network**  
-**The Network** is a **social media web application** that connects users with like-minded communities in an inclusive and vibrant network.  
+### 🌐 **The UVCE Network**  
+**The UVCE Network** is a **social media web application** that connects users with like-minded communities in an inclusive and vibrant network.  
 
 #### ✨ **Project Highlights**  
 - 📂 **Database-Focused**: Designed and implemented an **effective and efficient database schema** to ensure smooth data management.  
